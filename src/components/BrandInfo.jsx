@@ -10,21 +10,21 @@ export default function BrandInfo() {
         isFirst={true}
       />
       <FeatureItem 
-        iconSrc={"/shipping-icon.png"}
-        title={"Free Shipping"}
-        subtitle={"On orders over $50.00"}
+        iconSrc={"/return-icon.png"}
+        title={"Very easy to return"}
+        subtitle={"Just phone number"}
         isFirst={false}
       />
       <FeatureItem 
-        iconSrc={"/shipping-icon.png"}
-        title={"Free Shipping"}
-        subtitle={"On orders over $50.00"}
+        iconSrc={"/world-icon.png"}
+        title={"Worldwide delivery"}
+        subtitle={"Fast delivery worldwide"}
         isFirst={false}
       />
       <FeatureItem 
-        iconSrc={"/shipping-icon.png"}
-        title={"Free Shipping"}
-        subtitle={"On orders over $50.00"}
+        iconSrc={"/refund-icon.png"}
+        title={"Refund policy"}
+        subtitle={"60 days return for any reason"}
         isFirst={false}
       />
       
