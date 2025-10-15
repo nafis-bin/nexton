@@ -90,8 +90,6 @@ export default function CollectionSection() {
             ></div>
           ))}
       </div>
-
-      <div className="w-full h-30 bg-amber-200"></div>
     </div>
   );
 }
