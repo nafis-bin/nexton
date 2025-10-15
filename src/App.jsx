@@ -4,6 +4,7 @@ import BrandInfo from "./components/BrandInfo";
 import CollectionSection from "./components/CollectionSection";
 import RecommendedProducts from "./components/RecommendedProducts";
 import BestSellingProducts from "./components/BestSellingProducts";
+import FooterBanner from "./components/FooterBanner"
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <CollectionSection />
       <RecommendedProducts />
       <BestSellingProducts />
+      <FooterBanner />
     </div>
   );
 }
