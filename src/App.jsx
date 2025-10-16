@@ -5,6 +5,8 @@ import CollectionSection from "./components/CollectionSection";
 import RecommendedProducts from "./components/RecommendedProducts";
 import BestSellingProducts from "./components/BestSellingProducts";
 import FooterBanner from "./components/FooterBanner"
+import Aside from "./components/Aside";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -16,6 +18,8 @@ function App() {
       <RecommendedProducts />
       <BestSellingProducts />
       <FooterBanner />
+      <Aside />
+      <Footer />
     </div>
   );
 }
