@@ -9,7 +9,7 @@ export default function Navbar() {
           className="w-full h-full bg-[#f8f8f8] text-[14px] leading-[20px] text-[#4b5563] rounded-[9999px] py-4 px-[54px] outline-none"
         />
         <img
-          src="/search-icon.png"
+          src="/search-icon.svg"
           alt="search-bar-icon"
           className="w-5 h-5 absolute left-4 top-4"
         />

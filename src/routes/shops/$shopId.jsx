@@ -64,7 +64,7 @@ function RouteComponent() {
         <div className="w-[460px] h-[463px] bg-white rounded-[16px] border-1 border-[#e5e7eb] flex flex-col items-center p-[33px] gap-[32px]">
           <div className="w-[394px] h-[54px] flex items-start justify-between">
             <div className="flex items-center w-[155.71px] h-[24px] gap-[6px]">
-              <img src="/star.png" alt="star logo" className="size-4" />
+              <img src="/star.svg" alt="star logo" className="size-4" />
               <div className="text-4 leading-6 font-semibold text-[#4b5563]">
                 4.9
               </div>

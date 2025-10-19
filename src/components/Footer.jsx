@@ -4,7 +4,7 @@ export default function Footer() {
             <p className="text-[16px] leading-[24px] text-[#4b5563]">Nexton eCommerce. © 2024</p>
             <div className="w-[236px] h-[32px]">
                 <img className="w-full h-full"
-                    src="/payment-icons.png" 
+                    src="/payment-icons.svg" 
                     alt="payment icons" 
                 />
             </div>

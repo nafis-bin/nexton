@@ -12,7 +12,7 @@ export default function CollectionSectionItem({ title, description }) {
       <button className="flex gap-2 items-center font-medium inset-0 border-l-2 border-[#ebe7eb] w-[131px] h-[36px] pl-3">
         SHOP NOW{" "}
         <span>
-          <img src="/right-arrow-icon.png" alt="right-arrow-icon" />
+          <img src="/right-arrow-icon.svg" alt="right-arrow-icon" />
         </span>
       </button>
     </div>

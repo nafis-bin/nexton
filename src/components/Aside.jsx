@@ -24,19 +24,19 @@ const data = [
 
 const firstCol = [
     {
-        logo: "/facebook.png",
+        logo: "/facebook.svg",
         title: "Facebook"
     },
     {
-        logo: "/youtube.png",
+        logo: "/youtube.svg",
         title: "Youtube"
     },
     {
-        logo: "/telegram.png",
+        logo: "/telegram.svg",
         title: "Telegram"
     },
     {
-        logo: "/twitter.png",
+        logo: "/twitter.svg",
         title: "Twitter"
     },
 ]
