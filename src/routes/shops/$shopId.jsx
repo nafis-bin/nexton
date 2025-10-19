@@ -47,12 +47,19 @@ function RouteComponent() {
             />
           </div>
         </div>
-        <div className="w-[640px] h-[678px] mr-[32px] rounded-[16px]">
+        <div className="relative w-[640px] h-[678px] mr-[32px] rounded-[16px]">
           <img
             src="/main-watch.png"
             alt="main watch"
             className="w-full h-full object-contain rounded-[16px]"
           />
+          <div className="absolute w-9 h-9 rounded-full flex items-center justify-center top-3 right-3 bg-white cursor-pointer">
+            <ShoppingBag size={16} color={"#4b5563"} />
+          </div>
+          <div className="absolute flex items-center justify-center gap-1 w-[83.38px] h-[32px] rounded-[9999px] bg-white top-[16px] left-[16px]">
+            <Sparkles size={11.38} />
+            <p className="text-[12px] leading-[16px] text-[#4b5563]">New in</p>
+          </div>
         </div>
         <div className="w-[460px] h-[463px] bg-white rounded-[16px] border-1 border-[#e5e7eb] flex flex-col items-center p-[33px] gap-[32px]">
           <div className="w-[394px] h-[54px] flex items-start justify-between">
