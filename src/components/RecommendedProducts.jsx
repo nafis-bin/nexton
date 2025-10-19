@@ -1,10 +1,11 @@
 import { useState, useEffect, useRef } from "react";
+import clsx from "clsx";
 
 let prev = new Array(4).fill(0);
 
 let arr = [...prev, ...prev, ...prev];
 
-export default function RecommendedProducts() {
+export default function RecommendedProducts({ marginTop }) {
   let [activeIdx, setActiveIdx] = useState(0);
   let containerRef = useRef(null);
 
@@ -38,7 +39,10 @@ export default function RecommendedProducts() {
   };
 
   return (
-    <div className="h-[598px] max-w-[1296px] mx-auto mt-[176px] flex flex-col">
+    <div className={clsx(`h-[598px] max-w-[1296px] mx-auto flex flex-col`, {
+      "mt-[176px]": marginTop === 176,
+      "mt-[96px]": marginTop === 96,
+    })}>
       <div className="text-[36px] leading-[40px] font-semibold items-start">
         Recommendations.{" "}
         <span className="text-[#4b5563]">Best matching products for you</span>
@@ -46,7 +50,7 @@ export default function RecommendedProducts() {
       <div
         ref={containerRef}
         onScroll={handleScroll}
-        className="w-full h-[448px] flex gap-[20px] mt-[40px] overflow-x-scroll scroll-smooth snap-x snap-mandatory no-scrollbar"
+        className="w-full h-[448px] flex gap-[20px] mt-[40px] overflow-y-hidden overflow-x-scroll scroll-smooth snap-x snap-mandatory no-scrollbar"
       >
         {arr.map((_, i) => (
           <div

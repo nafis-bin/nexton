@@ -17,7 +17,7 @@ function Index() {
       <Hero />
       <BrandInfo />
       <CollectionSection />
-      <RecommendedProducts />
+      <RecommendedProducts marginTop={176} />
       <BestSellingProducts />
       <FooterBanner />
     </>
