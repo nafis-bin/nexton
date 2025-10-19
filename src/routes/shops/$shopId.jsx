@@ -18,28 +18,28 @@ function RouteComponent() {
     <div className="w-[1296px] mx-auto h-max mt-[40px]">
       <div className="flex">
         <div className="w-[140px] h-[678px] mr-[24px] flex flex-col gap-4">
-          <div className="w-[140px] h-[157.5px] rounded-[16px] bg-green-200">
+          <div className="w-[140px] h-[157.5px] rounded-[16px]">
             <img
               src="/sidewatch-1.png"
               alt="side watch"
               className="w-full h-full object-contain"
             />
           </div>
-          <div className="w-[140px] h-[157.5px] rounded-[16px] bg-green-200">
+          <div className="w-[140px] h-[157.5px] rounded-[16px]">
             <img
               src="/sidewatch-2.png"
               alt="side watch"
               className="w-full h-full object-contain"
             />
           </div>
-          <div className="w-[140px] h-[157.5px] rounded-[16px] bg-green-200">
+          <div className="w-[140px] h-[157.5px] rounded-[16px]">
             <img
               src="/sidewatch-3.png"
               alt="side watch"
               className="w-full h-full object-contain"
             />
           </div>
-          <div className="w-[140px] h-[157.5px] rounded-[16px] bg-green-200">
+          <div className="w-[140px] h-[157.5px] rounded-[16px]">
             <img
               src="/sidewatch-4.png"
               alt="side watch"

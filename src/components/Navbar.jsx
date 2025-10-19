@@ -1,6 +1,6 @@
 export default function Navbar() {
   return (
-    <nav className="w-full h-[100px] flex items-center justify-center gap-[350px]">
+    <nav className="w-full h-[100px] flex items-center justify-center gap-[350px] border-b border-[#e5e7eb]">
       <img src="/logo.png" alt="company logo" className="w-[119px] h-[46px]" />
       <div className="w-100 h-[52px] relative">
         <input
