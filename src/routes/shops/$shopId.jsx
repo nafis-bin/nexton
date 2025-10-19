@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { fetchWatch } from "../../lib/utility";
 import { Minus, Plus, ShoppingBag, Sparkles } from "lucide-react";
-import RecommendedProducts from "../../components/RecommendedProducts"
+import RecommendedProducts from "../../components/RecommendedProducts";
 
 export const Route = createFileRoute("/shops/$shopId")({
   loader: async ({ params }) => {
@@ -162,7 +162,8 @@ function RouteComponent() {
             Fabric + Care
           </h3>
           <p className="w-[735px] h-[72px] text-[#4b5563] text-[16px] leading-[24px]">
-            Material: Soft wool blend<br />
+            Material: Soft wool blend
+            <br />
             Color: Various
           </p>
         </div>
