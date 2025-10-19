@@ -17,12 +17,12 @@ export default function Navbar() {
 
       <div className="flex gap-[22px]">
         <img
-          src="/user-icon.png"
+          src="/user-btn.svg"
           alt="user-icon"
           className="w-[24px] h-[24px]"
         />
         <img
-          src="/cart-icon.png"
+          src="/svg.svg"
           alt="cart-icon"
           className="w-[24px] h-[24px]"
         />
