@@ -53,16 +53,18 @@ export default function CollectionSection() {
     }
   };
   return (
-    <div className="flex flex-col w-[1296px] mx-auto mt-[120px] h-max gap-10">
+    <div className="flex flex-col w-[1296px] mx-auto mt-[120px] h-max gap-10
+    max-sm:w-full max-sm:h-[270px] max-sm:mt-[52px] max-sm:px-[24px] max-sm:gap-6">
       <p className="text-[36px] leading-[40px] font-semibold text-[#111827]">
         Start exploring.{" "}
-        <span className="text-[#4b5563]">Good things are waiting for you</span>
+        <span className="hidden text-[#4b5563] sm:inline-block">Good things are waiting for you</span>
       </p>
 
       <div
         ref={containerRef}
         onScroll={handleScroll}
-        className="flex items-center gap-5 w-full h-[132px] overflow-x-scroll snap-x snap-mandatory scroll-smooth no-scrollbar"
+        className="flex items-center gap-5 w-full h-[132px] overflow-x-scroll snap-x snap-mandatory scroll-smooth no-scrollbar
+        max-sm:h-[124px]"
       >
         {doubledItems.map((item, i) => (
           <CollectionSectionItem key={i} {...item} />

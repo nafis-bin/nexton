@@ -4,7 +4,7 @@ export default function Navbar() {
   return (
     <nav className="w-full h-[100px] flex items-center justify-center gap-[350px] border-b border-[#e5e7eb] 
     max-sm:h-[64px] max-sm:gap-[32px] max-sm:px-4 max-sm:justify-between">
-      <img src="/logo.png" alt="company logo" className="hidden w-[119px] h-[46px] md:block" />
+      <img src="/mobile-nav-icon.svg" alt="company logo" className="hidden w-[119px] h-[46px] md:block" />
       <img src="/mobile-nav-icon.svg" alt="company logo" className="hidden w-[32px] h-[40px] max-sm:block" />
       <div className="w-100 h-[52px] relative max-sm:w-[200px] max-sm:h-[36px]">
         <input

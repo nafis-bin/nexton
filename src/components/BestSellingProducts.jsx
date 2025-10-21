@@ -39,10 +39,11 @@ export default function BestSellingProducts() {
   };
 
   return (
-    <div className="h-[598px] max-w-[1296px] mx-auto mt-[176px] flex flex-col">
+    <div className="h-[598px] max-w-[1296px] mx-auto mt-[176px] flex flex-col
+    max-sm:w-full max-sm:px-[24px] max-sm:mt-[104px]">
       <div className="text-[36px] leading-[40px] font-semibold items-start">
         Best Sellers.{" "}
-        <span className="text-[#4b5563]">Best Selling of the month</span>
+        <span className="hidden text-[#4b5563] sm:inline-block">Best Selling of the month</span>
       </div>
       <div
         ref={containerRef}

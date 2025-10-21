@@ -1,6 +1,6 @@
 export default function FooterBanner() {
     return (
-        <div className="max-w-[1296px] h-[437px] mx-auto bg-[#f5f5f5] rounded-3xl relative mt-30">
+        <div className="hidden max-w-[1296px] h-[437px] mx-auto bg-[#f5f5f5] rounded-3xl relative mt-30 sm:block">
             {/* content */}
             <div className="mx-[120px] w-[552px] pt-[93.5px] h-max">
                 <p className="text-[20px] leading-[28px] font-medium text-[#4b5563]">100% Original Products</p>

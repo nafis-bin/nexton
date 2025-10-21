@@ -2,7 +2,7 @@ import FeatureItem from "./FeatureItem";
 
 export default function BrandInfo() {
   return (
-    <div className="flex items-center justify-center w-[1296px] h-[98.44px] mt-[52px] mx-[120px] inset-0 border-1 border-[#e5e7eb] rounded-[16px]">
+    <div className="hidden items-center justify-center w-[1296px] h-[98.44px] mt-[52px] mx-[120px] inset-0 border-1 border-[#e5e7eb] rounded-[16px] sm:flex">
       <FeatureItem 
         iconSrc={"/shipping-icon.svg"}
         title={"Free Shipping"}

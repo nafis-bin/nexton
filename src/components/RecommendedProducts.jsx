@@ -40,13 +40,14 @@ export default function RecommendedProducts({ marginTop }) {
   };
 
   return (
-    <div className={clsx(`h-[598px] max-w-[1296px] mx-auto flex flex-col`, {
+    <div className={clsx(`h-[598px] max-w-[1296px] mx-auto flex flex-col
+      max-sm:w-full max-sm:px-[24px] max-sm:mt-[52px]`, {
       "mt-[176px]": marginTop === 176,
       "mt-[96px]": marginTop === 96,
     })}>
       <div className="text-[36px] leading-[40px] font-semibold items-start">
         Recommendations.{" "}
-        <span className="text-[#4b5563]">Best matching products for you</span>
+        <span className="hidden text-[#4b5563] sm:inline-block">Best matching products for you</span>
       </div>
       <div
         ref={containerRef}
