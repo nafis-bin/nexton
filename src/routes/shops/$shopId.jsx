@@ -3,7 +3,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { fetchWatch } from "../../lib/utility";
 import { Minus, Plus, ShoppingBag, Sparkles } from "lucide-react";
 import RecommendedProducts from "../../components/RecommendedProducts";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export const Route = createFileRoute("/shops/$shopId")({
   loader: async ({ params }) => {
@@ -17,8 +17,14 @@ export const Route = createFileRoute("/shops/$shopId")({
 function RouteComponent() {
   const [size, setSize] = useState("S");
   const [orderAmount, setOrderAmount] = useState(1);
-
+  const [total, setTotal] = useState(0);
   let data = Route.useLoaderData();
+
+  useEffect(() => {
+    setTotal(data.currPrice * orderAmount)
+  }, [orderAmount, data.currPrice])
+
+
 
   const handleChangeSize = (updatedSize) => {
     setSize(updatedSize);
@@ -237,20 +243,22 @@ function RouteComponent() {
             <div className="flex items-center w-[155.71px] h-[24px] gap-[6px]">
               <img src="/star.svg" alt="star logo" className="size-4" />
               <div className="text-4 leading-6 font-semibold text-[#4b5563]">
-                4.9
+                {data.rating.rate}
               </div>
               <div className="w-1 h-1 rounded-full bg-[#4b5563]"></div>
               <div className="text-4 leading-6 font-medium text-[#4b5563]">
-                142 reviews
+                {data.rating.people} reviews
               </div>
             </div>
 
             <div className="flex flex-col gap-[2px] items-end">
               <p className="text-6 leading-8 font-semibold text-[#111827]">
-                $169.99
+                ${data.currPrice.toFixed(2)}
               </p>
               <p className="text-[14px] leading-5 font-medium text-[#4b5563]">
-                <s>$199.99</s>
+                <s>
+                  ${data.prevPrice.toFixed(2)}
+                </s>
               </p>
             </div>
           </div>
@@ -258,38 +266,38 @@ function RouteComponent() {
           {/* size section */}
           <div className="w-[394px] h-[80px] flex flex-col gap-3 items-start">
             <p className="text-4 leading-6 font-semibold text-[#111827]">
-              Size: S
+              Size: {size}
             </p>
             <div className="w-[394px] h-[44px] flex gap-[8.5px]">
-              <div className="w-[72px] h-full bg-[#0ea5e9] text-[#fff] border-1 border-[#ebe7eb] place-content-center text-center rounded-[12px] text-4 leading-6 font-semibold cursor-pointer">
-                S
-              </div>
-              <div className="w-[72px] h-full bg-white text-[#4b5563] border-1 border-[#ebe7eb] place-content-center text-center rounded-[12px] text-4 leading-6 font-semibold cursor-pointer">
-                M
-              </div>
-              <div className="w-[72px] h-full bg-white text-[#4b5563] border-1 border-[#ebe7eb] place-content-center text-center rounded-[12px] text-4 leading-6 font-semibold cursor-pointer">
-                L
-              </div>
-              <div className="w-[72px] h-full bg-white text-[#4b5563] border-1 border-[#ebe7eb] place-content-center text-center rounded-[12px] text-4 leading-6 font-semibold cursor-pointer">
-                XL
-              </div>
-              <div className="w-[72px] h-full bg-white text-[#4b5563] border-1 border-[#ebe7eb] place-content-center text-center rounded-[12px] text-4 leading-6 font-semibold cursor-pointer">
-                XXL
-              </div>
+              {data.sizes.map((s, i) => (
+                <div 
+                  key={i} 
+                  onClick={() => handleChangeSize(s)}
+                  className={clsx("w-[72px] h-full place-content-center text-center rounded-[12px] text-4 leading-6 font-semibold cursor-pointer", {
+                      "text-[#4b5563] shadow-[0_0_0_1px_#e5e7eb] bg-[#fff]": s !== size,
+                      "text-[#fff] shadow-[0_0_0_1px_#0ea5e9] bg-[#0ea5e9]": s === size,
+                  })}>
+                  {s}
+                </div>
+              ))}
             </div>
           </div>
 
           {/* add to cart  */}
           <div className="w-[394px] h-[52px] flex items-center justify-between">
             {/* change num button */}
-            <div className="w-[110px] h-[40px] bg-[#f8f8f8] rounded-[9999px] flex items-center px-3 py-2 gap-[16px]">
-              <div className="border-1 border-[#e5e7eb] w-[24px] h-[24px] rounded-full bg-white flex items-center justify-center">
+            <div className="w-max h-[40px] bg-[#f8f8f8] rounded-[9999px] flex items-center px-3 py-2 gap-[16px]">
+              <div 
+                onClick={() => handleOrderAmount("minus")}
+                className="border-1 border-[#e5e7eb] w-[24px] h-[24px] rounded-full bg-white flex items-center justify-center">
                 <Minus size={10} />
               </div>
               <div className="text-4 leading-6 font-medium text-[#4b5563]">
-                1
+                {orderAmount}
               </div>
-              <div className="border-1 border-[#e5e7eb] w-[24px] h-[24px] rounded-full bg-white flex items-center justify-center">
+              <div 
+                onClick={() => handleOrderAmount("plus")}
+                className="border-1 border-[#e5e7eb] w-[24px] h-[24px] rounded-full bg-white flex items-center justify-center">
                 <Plus size={10} />
               </div>
             </div>
@@ -305,8 +313,8 @@ function RouteComponent() {
           {/* price and all */}
           <div className="w-[394px] h-[58px] flex flex-col gap-[10px]">
             <div className="text-4 leading-6 text-[#4b5563] flex justify-between">
-              <div>$169.99 x 1</div>
-              <div>$169.99</div>
+              <div>${data.currPrice} x {orderAmount}</div>
+              <div>${total}</div>
             </div>
             <div className="text-4 leading-6 text-[#4b5563] flex justify-between">
               <div>Tax estimate</div>
@@ -315,7 +323,7 @@ function RouteComponent() {
             <div className="w-full border-1 border-[#e5e7eb] mt-[6px]" />
             <div className="flex justify-between text-[16px] leading-6 font-semibold text-[#111827]">
               <p>Total</p>
-              <p>$169.99</p>
+              <p>${total}</p>
             </div>
           </div>
         </div>
