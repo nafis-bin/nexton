@@ -1,4 +1,4 @@
-import { Menu } from "lucide-react";
+import { Menu, User, LogIn, UserPlus } from "lucide-react";
 
 export default function Navbar() {
   return (
@@ -33,8 +33,31 @@ export default function Navbar() {
           className="w-[24px] h-[24px]"
         />
       </div>
-      <div className="hidden max-sm:block">
-        <Menu size={28} />
+      <div className="hidden relative max-sm:block">
+        <button popoverTarget="menu">
+        <Menu 
+          size={28} 
+        />
+        </button>
+
+        <div
+          popover="auto"
+          id="menu"
+          className="absolute w-32 py-4 bg-white shadow-sm rounded-2xl flex flex-col gap-2 left-full top-20 -translate-x-[calc(100%+16px)]"
+        >
+          <div className="flex items-center gap-2 text-gray-800 text-[14px] hover:bg-gray-100 transition-all duration-300 rounded-lg mx-2 px-2 py-1 cursor-pointer">
+            <User size={14} />
+            user
+          </div>
+          <div className="flex items-center gap-2 text-gray-800 text-[14px] hover:bg-gray-100 transition-all duration-300 rounded-lg mx-2 px-2 py-1 cursor-pointer">
+            <LogIn size={14} />
+            login
+          </div>
+          <div className="flex items-center gap-2 text-gray-800 text-[14px] hover:bg-gray-100 transition-all duration-300 rounded-lg mx-2 px-2 py-1 cursor-pointer">
+            <UserPlus size={14} />
+            signup
+          </div>
+        </div>
       </div>
 
     </nav>
