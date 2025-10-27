@@ -1,11 +1,31 @@
 import { Menu, User, LogIn, UserPlus } from "lucide-react";
+import { Link, useRouterState } from "@tanstack/react-router";
+import { useEffect, useState } from "react";
 
 export default function Navbar() {
+  const routerState = useRouterState();
+  const [open, setOpen] = useState(false);
+
+  // closes popovers on route change
+  useEffect(() => {
+    setOpen(false);
+  }, [routerState.location.pathname]);
+
   return (
-    <nav className="w-full h-[100px] flex items-center justify-center gap-[350px] border-b border-[#e5e7eb] 
-    max-sm:h-[64px] max-sm:gap-[32px] max-sm:px-4 max-sm:justify-between">
-      <img src="/mobile-nav-icon.svg" alt="company logo" className="hidden w-[119px] h-[46px] md:block" />
-      <img src="/mobile-nav-icon.svg" alt="company logo" className="hidden w-[32px] h-[40px] max-sm:block" />
+    <nav
+      className="relative w-full h-[100px] flex items-center justify-center gap-[350px] border-b border-[#e5e7eb] 
+    max-sm:h-[64px] max-sm:gap-[32px] max-sm:px-4 max-sm:justify-between"
+    >
+      <img
+        src="/mobile-nav-icon.svg"
+        alt="company logo"
+        className="hidden w-[119px] h-[46px] md:block"
+      />
+      <img
+        src="/mobile-nav-icon.svg"
+        alt="company logo"
+        className="hidden w-[32px] h-[40px] max-sm:block"
+      />
       <div className="w-100 h-[52px] relative max-sm:w-[200px] max-sm:h-[36px]">
         <input
           type="text"
@@ -27,39 +47,36 @@ export default function Navbar() {
           alt="user-icon"
           className="w-[24px] h-[24px]"
         />
-        <img
-          src="/svg.svg"
-          alt="cart-icon"
-          className="w-[24px] h-[24px]"
-        />
+        <img src="/svg.svg" alt="cart-icon" className="w-[24px] h-[24px]" />
       </div>
-      <div className="hidden relative max-sm:block">
-        <button popoverTarget="menu">
-        <Menu 
-          size={28} 
-        />
+      <div className="hidden max-sm:block">
+        <button onClick={() => setOpen(!open)}>
+          <Menu size={28} />
         </button>
 
-        <div
-          popover="auto"
-          id="menu"
-          className="absolute w-32 py-4 bg-white shadow-sm rounded-2xl flex flex-col gap-2 left-full top-20 -translate-x-[calc(100%+16px)]"
-        >
-          <div className="flex items-center gap-2 text-gray-800 text-[14px] hover:bg-gray-100 transition-all duration-300 rounded-lg mx-2 px-2 py-1 cursor-pointer">
-            <User size={14} />
-            user
+        {open && (
+          <div
+            className="absolute w-32 py-4 z-100 bg-white shadow-sm rounded-2xl flex flex-col gap-2 left-full top-20 -translate-x-[calc(100%+16px)]"
+          >
+            <div 
+              onClick={() => setOpen(false)}
+              className="flex items-center gap-2 text-gray-800 text-[14px] hover:bg-gray-100 transition-all duration-300 rounded-lg mx-2 px-2 py-1 cursor-pointer">
+              <User size={14} />
+              user
+            </div>
+            <Link to="/login" onClick={() => setOpen(false)}>
+              <div className="flex items-center gap-2 text-gray-800 text-[14px] hover:bg-gray-100 transition-all duration-300 rounded-lg mx-2 px-2 py-1 cursor-pointer">
+                <LogIn size={14} />
+                login
+              </div>
+            </Link>
+            <div className="flex items-center gap-2 text-gray-800 text-[14px] hover:bg-gray-100 transition-all duration-300 rounded-lg mx-2 px-2 py-1 cursor-pointer">
+              <UserPlus size={14} />
+              signup
+            </div>
           </div>
-          <div className="flex items-center gap-2 text-gray-800 text-[14px] hover:bg-gray-100 transition-all duration-300 rounded-lg mx-2 px-2 py-1 cursor-pointer">
-            <LogIn size={14} />
-            login
-          </div>
-          <div className="flex items-center gap-2 text-gray-800 text-[14px] hover:bg-gray-100 transition-all duration-300 rounded-lg mx-2 px-2 py-1 cursor-pointer">
-            <UserPlus size={14} />
-            signup
-          </div>
-        </div>
+        )}
       </div>
-
     </nav>
   );
 }
