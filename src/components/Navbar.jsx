@@ -55,12 +55,11 @@ export default function Navbar() {
         </button>
 
         {open && (
-          <div
-            className="absolute w-32 py-4 z-100 bg-white shadow-sm rounded-2xl flex flex-col gap-2 left-full top-20 -translate-x-[calc(100%+16px)]"
-          >
-            <div 
+          <div className="absolute w-32 py-4 z-100 bg-white shadow-sm rounded-2xl flex flex-col gap-2 left-full top-20 -translate-x-[calc(100%+16px)]">
+            <div
               onClick={() => setOpen(false)}
-              className="flex items-center gap-2 text-gray-800 text-[14px] hover:bg-gray-100 transition-all duration-300 rounded-lg mx-2 px-2 py-1 cursor-pointer">
+              className="flex items-center gap-2 text-gray-800 text-[14px] hover:bg-gray-100 transition-all duration-300 rounded-lg mx-2 px-2 py-1 cursor-pointer"
+            >
               <User size={14} />
               user
             </div>
@@ -70,10 +69,12 @@ export default function Navbar() {
                 login
               </div>
             </Link>
-            <div className="flex items-center gap-2 text-gray-800 text-[14px] hover:bg-gray-100 transition-all duration-300 rounded-lg mx-2 px-2 py-1 cursor-pointer">
-              <UserPlus size={14} />
-              signup
-            </div>
+            <Link to="/register" onClick={() => setOpen(false)}>
+              <div className="flex items-center gap-2 text-gray-800 text-[14px] hover:bg-gray-100 transition-all duration-300 rounded-lg mx-2 px-2 py-1 cursor-pointer">
+                <UserPlus size={14} />
+                signup
+              </div>
+            </Link>
           </div>
         )}
       </div>
