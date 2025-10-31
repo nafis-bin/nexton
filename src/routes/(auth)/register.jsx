@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
+import { Link } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/(auth)/register")({
   component: RouteComponent,
@@ -81,7 +82,7 @@ function RouteComponent() {
       </div>
 
       <div className="text-[16px] leading-[24px] text-[#4b5563] max-sm:text-[14px] max-sm:leading-[20px]">
-        Already a member? <span className="text-[#0ea5e9]">Login</span>
+        Already a member? <Link to="/login"><span className="text-[#0ea5e9]">Login</span></Link>
       </div>
     </div>
   );

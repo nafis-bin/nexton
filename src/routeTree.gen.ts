@@ -14,6 +14,7 @@ import { Route as ShopsIndexRouteImport } from './routes/shops/index'
 import { Route as ShopsShopIdRouteImport } from './routes/shops/$shopId'
 import { Route as authRegisterRouteImport } from './routes/(auth)/register'
 import { Route as authLoginRouteImport } from './routes/(auth)/login'
+import { Route as aboutAboutRouteImport } from './routes/(about)/about'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -40,9 +41,15 @@ const authLoginRoute = authLoginRouteImport.update({
   path: '/login',
   getParentRoute: () => rootRouteImport,
 } as any)
+const aboutAboutRoute = aboutAboutRouteImport.update({
+  id: '/(about)/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof aboutAboutRoute
   '/login': typeof authLoginRoute
   '/register': typeof authRegisterRoute
   '/shops/$shopId': typeof ShopsShopIdRoute
@@ -50,6 +57,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof aboutAboutRoute
   '/login': typeof authLoginRoute
   '/register': typeof authRegisterRoute
   '/shops/$shopId': typeof ShopsShopIdRoute
@@ -58,6 +66,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/(about)/about': typeof aboutAboutRoute
   '/(auth)/login': typeof authLoginRoute
   '/(auth)/register': typeof authRegisterRoute
   '/shops/$shopId': typeof ShopsShopIdRoute
@@ -65,12 +74,19 @@ export interface FileRoutesById {
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/login' | '/register' | '/shops/$shopId' | '/shops'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/login'
+    | '/register'
+    | '/shops/$shopId'
+    | '/shops'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/login' | '/register' | '/shops/$shopId' | '/shops'
+  to: '/' | '/about' | '/login' | '/register' | '/shops/$shopId' | '/shops'
   id:
     | '__root__'
     | '/'
+    | '/(about)/about'
     | '/(auth)/login'
     | '/(auth)/register'
     | '/shops/$shopId'
@@ -79,6 +95,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  aboutAboutRoute: typeof aboutAboutRoute
   authLoginRoute: typeof authLoginRoute
   authRegisterRoute: typeof authRegisterRoute
   ShopsShopIdRoute: typeof ShopsShopIdRoute
@@ -122,11 +139,19 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof authLoginRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/(about)/about': {
+      id: '/(about)/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof aboutAboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  aboutAboutRoute: aboutAboutRoute,
   authLoginRoute: authLoginRoute,
   authRegisterRoute: authRegisterRoute,
   ShopsShopIdRoute: ShopsShopIdRoute,
