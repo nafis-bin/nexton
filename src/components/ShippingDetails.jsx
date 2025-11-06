@@ -211,7 +211,7 @@ export default function ShippingDetails() {
           <div className="flex gap-[24px]">
             <div className="flex flex-col gap-2">
               <h4 className="text-[16px] leading-[24px] font-semibold">
-                Address line 1
+                Expiration date (MM/YY)
               </h4>
               <input
                 className="w-[384px] h-[43.2px] ring-1 ring-[#ebe7eb] rounded-[12px] pl-3"
@@ -221,7 +221,7 @@ export default function ShippingDetails() {
 
             <div className="flex flex-col gap-2">
               <h4 className="text-[16px] leading-[24px] font-semibold">
-                Apt, Suite
+                CVC
               </h4>
               <input
                 className="w-[180px] h-[43.2px] ring-1 ring-[#ebe7eb] rounded-[12px] pl-3"

@@ -1,5 +1,5 @@
 import ShippingDetails from "../components/ShippingDetails"
-import { createFileRoute } from '@tanstack/react-router'
+import { createFileRoute, Link } from '@tanstack/react-router'
 
 export const Route = createFileRoute('/checkout')({
   component: RouteComponent,
@@ -13,9 +13,13 @@ function RouteComponent() {
                 Checkout
             </h1>
             <div className="flex gap-[12px] text-[16px] leading-[24px] font-medium text-[#4b5563]">
-                <p>Homepage</p>
+                <Link to="/">
+                    <p>Homepage</p>
+                </Link>
                 <p>/</p>
-                <p>Checkout</p>
+                <Link to="/checkout">
+                    <p>Checkout</p>
+                </Link>
             </div>
         </div>
         
